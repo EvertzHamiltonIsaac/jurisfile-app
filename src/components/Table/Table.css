@@ -1,0 +1,26 @@
+.table-handle-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons-table {
+  display: flex;
+  ;
+  gap: 1rem;
+}
+
+.filter-buttons-table {
+  padding: 6px;
+  margin-bottom: 5px;
+}
+
+.add-buttons-table {
+  padding: 6px;
+  margin-bottom: 5px;
+  background-color: aquamarine;
+}
+
+.input-table {
+  padding: 6px;
+  margin-bottom: 5px;
+}

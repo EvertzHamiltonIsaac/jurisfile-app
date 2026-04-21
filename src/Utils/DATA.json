@@ -1,0 +1,46 @@
+[
+  {
+    "CEDULA_RNC": "001-9876543-2",
+    "NOMBRE_CLIENTE": "Inversiones Caribe S.A.",
+    "TIPO_EXPEDIENTE": "Civil",
+    "NO_EXPEDIENTE": "2025-010",
+    "TITULO_EXPEDIENTE": "Demanda por incumplimiento de contrato",
+    "DESC_EXPEDIENTE": "El cliente reclama daños y perjuicios por incumplimiento en la entrega de materiales.",
+    "ESTADO_EXPEDIENTE": "En Proceso",
+    "FECHA_APERTURA": "2025-02-12",
+    "FECHA_CIERRE": null
+  },
+  {
+    "CEDULA_RNC": "123-4567890-1",
+    "NOMBRE_CLIENTE": "María Fernanda López",
+    "TIPO_EXPEDIENTE": "Laboral",
+    "NO_EXPEDIENTE": "2025-011",
+    "TITULO_EXPEDIENTE": "Reclamación de prestaciones laborales",
+    "DESC_EXPEDIENTE": "La trabajadora solicita pago de prestaciones pendientes tras su desvinculación.",
+    "ESTADO_EXPEDIENTE": "Abierto",
+    "FECHA_APERTURA": "2025-03-05",
+    "FECHA_CIERRE": null
+  },
+  {
+    "CEDULA_RNC": "789-1234567-0",
+    "NOMBRE_CLIENTE": "Consultora Global SRL",
+    "TIPO_EXPEDIENTE": "Mercantil",
+    "NO_EXPEDIENTE": "2025-012",
+    "TITULO_EXPEDIENTE": "Conflicto por propiedad intelectual",
+    "DESC_EXPEDIENTE": "Disputa sobre derechos de uso de software desarrollado en conjunto.",
+    "ESTADO_EXPEDIENTE": "Cerrado",
+    "FECHA_APERTURA": "2024-11-20",
+    "FECHA_CIERRE": "2025-01-15"
+  },
+  {
+    "CEDULA_RNC": "456-7890123-4",
+    "NOMBRE_CLIENTE": "José Antonio Ramírez",
+    "TIPO_EXPEDIENTE": "Penal",
+    "NO_EXPEDIENTE": "2025-013",
+    "TITULO_EXPEDIENTE": "Investigación por fraude electrónico",
+    "DESC_EXPEDIENTE": "El cliente es investigado por presunto fraude en transacciones digitales.",
+    "ESTADO_EXPEDIENTE": "En Proceso",
+    "FECHA_APERTURA": "2025-04-01",
+    "FECHA_CIERRE": null
+  }
+]

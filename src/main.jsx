@@ -2,28 +2,35 @@ import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App.jsx';
 import Dashboard from '../src/pages/Dashboard/Dashboard.jsx';
-import Cases from '../src/pages/Cases/Cases.jsx';
+import Matters from './pages/Matters/Matters.jsx';
 import Clients from '../src/pages/Clients/Clients.jsx';
 import Documents from '../src/pages/Documents/Documents.jsx';
 import Hearings from '../src/pages/Hearings/Hearings.jsx';
+import Layout from '@/components/layout/Layout';
+import MatterDetail from '@/pages/Matters/MattersDetail';
 import { RouterProvider } from 'react-router/dom';
 import { createBrowserRouter } from 'react-router';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />,
+    element: <Layout />,
     children: [
       { index: true, path: 'dashboard', element: <Dashboard /> },
-      { path: 'cases', element: <Cases /> },
-      { path: 'clients', element: <Clients /> },
+      { path: 'matters', element: <Matters /> },
+      { path: 'matters/:id', element: <MatterDetail /> },
       { path: 'documents', element: <Documents /> },
+      { path: 'clients', element: <Clients /> },
       { path: 'hearings', element: <Hearings /> },
     ],
   },
   {
     path: '*',
-    element: <div>Not Found Page</div>,
+    element: (
+      <div className='flex items-center justify-center h-screen text-sm text-slate-400'>
+        404 — Page not found
+      </div>
+    ),
   },
 ]);
 
