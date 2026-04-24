@@ -9,14 +9,20 @@ import Hearings from '../src/pages/Hearings/Hearings.jsx';
 import Layout from '@/components/layout/Layout';
 import MatterDetail from '@/pages/Matters/MattersDetail';
 import { RouterProvider } from 'react-router/dom';
-import { createBrowserRouter } from 'react-router';
+import { createBrowserRouter, Navigate } from 'react-router';
+import Login from './pages/Login/Login';
 
 const router = createBrowserRouter([
+  {
+    path: '/login',
+    element: <Login />,
+  },
   {
     path: '/',
     element: <Layout />,
     children: [
-      { index: true, path: 'dashboard', element: <Dashboard /> },
+      { index: true, element: <Navigate to='/dashboard' replace /> },
+      { path: 'dashboard', element: <Dashboard /> },
       { path: 'matters', element: <Matters /> },
       { path: 'matters/:id', element: <MatterDetail /> },
       { path: 'documents', element: <Documents /> },

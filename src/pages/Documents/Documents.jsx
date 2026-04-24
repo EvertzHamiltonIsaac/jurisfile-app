@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Upload, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import UploadModal from '@/components/ui/UploadModal';
 import { documents } from '@/Utils/MockData';
 
 const fileIcons = { pdf: '📄', docx: '📝', xlsx: '📊' };
@@ -17,6 +18,12 @@ const categoryColors = {
 
 export default function Documents() {
   const [search, setSearch] = useState('');
+  const [uploadOpen, setUploadOpen] = useState(false);
+
+  const handleUpload = (files) => {
+    // TODO: send files to backend API
+    console.log('Files to upload:', files);
+  };
 
   const filtered = documents.filter(
     (d) =>
@@ -37,11 +44,18 @@ export default function Documents() {
         </div>
         <Button
           size='sm'
+          onClick={() => setUploadOpen(true)}
           className='bg-slate-900 hover:bg-slate-700 text-white gap-1.5 h-8 text-xs'
         >
           <Upload className='w-3.5 h-3.5' /> Upload Document
         </Button>
       </div>
+
+      <UploadModal
+        open={uploadOpen}
+        onClose={() => setUploadOpen(false)}
+        onUpload={handleUpload}
+      />
 
       {/* Search */}
       <div className='relative max-w-xs'>

@@ -4,9 +4,9 @@
 @import "@fontsource-variable/geist";
 
 @theme {
-  --color-border: hsl(var(--boder));
+  --color-border: #EDEDED;
   --color-background: #FAFAFA;
-  --color-foreground: #EEEEEE;
+  --color-foreground: #EDEDED;
 }
 
 * {
@@ -15,7 +15,6 @@
 
 body {
   background-color: hsl(var(--color-background));
-  color: black;
 }
 
 * {
@@ -23,7 +22,7 @@ body {
 }
 
 body {
-  @apply bg-background text-foreground;
+  @apply bg-background text-black;
 }
 
 html {
