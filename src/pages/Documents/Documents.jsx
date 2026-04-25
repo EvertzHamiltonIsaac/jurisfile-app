@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Upload, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import UploadModal from '@/components/ui/UploadModal';
+import UploadModal from '@/components/ui/Uploadmodal';
 import { documents } from '@/Utils/MockData';
 
 const fileIcons = { pdf: '📄', docx: '📝', xlsx: '📊' };
