@@ -12,7 +12,7 @@ export const CASE_STATUSES = [
   { id: 1, name: 'Abierto' },
   { id: 2, name: 'En Progreso' },
   { id: 3, name: 'En Espera' },
-  { id: 4, name: 'En Cerrado' },
+  { id: 4, name: 'Cerrado' },
   { id: 5, name: 'Archivado' },
 ];
 
