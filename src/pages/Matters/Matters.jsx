@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import StatusBadge from '@/components/ui/StatusBadge';
 import { casesService } from '@/services/Cases.service';
 import NewMatterModal from '@/components/modals/NewMatterModal';
-const filters = ['All', 'Abierto', 'En Progreso', 'En Espera', 'Cerrado', 'Archivado'];
+const filters = ['All', 'Abierto', 'En Proceso', 'En Espera', 'Cerrado', 'Archivado'];
 
 const typeColors = {
   Laboral: 'bg-rose-50 text-rose-600',
