@@ -3,10 +3,10 @@ const statusConfig = {
   'En Progreso': { color: 'bg-amber-100 text-amber-700 border-amber-200' },
   'En Espera': { color: 'bg-purple-100 text-purple-700 border-purple-200' },
   Cerrado: { color: 'bg-emerald-100 text-emerald-700 border-emerald-200' },
-  Activado: { color: 'bg-gray-100 text-gray-600 border-gray-200' },
+  Postponed: { color: 'bg-gray-100 text-gray-600 border-gray-200' },
   Pending: { color: 'bg-amber-100 text-amber-700 border-amber-200' },
   Held: { color: 'bg-emerald-100 text-emerald-700 border-emerald-200' },
-  Postponed: { color: 'bg-orange-100 text-orange-700 border-orange-200' },
+  Archivado: { color: 'bg-orange-100 text-orange-700 border-orange-200' },
   Cancelled: { color: 'bg-red-100 text-red-700 border-red-200' },
 };
 
