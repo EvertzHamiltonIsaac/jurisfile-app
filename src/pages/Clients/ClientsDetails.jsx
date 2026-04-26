@@ -206,14 +206,14 @@ export default function ClientsDetails() {
             ) : (
               cases.map((c) => (
                 <div
-                  key={c.case_id}
-                  onClick={() => navigate(`/matters/${c.case_id}`)}
+                  key={c.expediente_id}
+                  onClick={() => navigate(`/matters/${c.expediente_id}`)}
                   className='flex items-center justify-between px-5 py-3.5 hover:bg-gray-50 cursor-pointer transition-colors'
                 >
                   <div>
-                    <p className='text-xs font-medium text-slate-800'>{c.title}</p>
+                    <p className='text-xs font-medium text-slate-800'>{c.titulo}</p>
                     <p className='text-[11px] text-slate-400 mt-0.5'>
-                      {c.case_number} · {c.case_type}
+                      {c.numero} · {c.case_type}
                     </p>
                   </div>
                   <StatusBadge status={c.case_status} />
