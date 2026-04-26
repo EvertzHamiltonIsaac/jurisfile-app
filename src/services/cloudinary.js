@@ -13,7 +13,7 @@ export async function uploadToCloudinary(file) {
   formData.append('upload_preset', UPLOAD_PRESET);
   formData.append('folder', 'jurisfile/documents');
 
-  const response = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/raw/upload`, { method: 'POST', body: formData });
+  const response = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/auto/upload`, { method: 'POST', body: formData });
 
   if (!response.ok) {
     throw new Error('Failed to upload file to Cloudinary.');

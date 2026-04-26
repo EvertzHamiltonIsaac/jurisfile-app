@@ -16,7 +16,7 @@ export const CASE_STATUSES = [
   { id: 5, name: 'Archivado' },
 ];
 
-export const ROLES = ['Supervisor', 'Colaborador', 'Responsable'];
+export const ROLES = ['Supervisor', 'Colaborador'];
 
 export const CATEGORIES = [
   { id: 1, name: 'Demanda' },

@@ -78,8 +78,8 @@ export default function NewClientModal({ open, onClose, onCreated }) {
             </label>
             <div className='grid grid-cols-2 gap-2'>
               {[
-                { value: 'Individual', label: 'Individual', Icon: User },
-                { value: 'LegalEntity', label: 'Legal Entity', Icon: Building2 },
+                { value: 'Fisica', label: 'Fisica', Icon: User },
+                { value: 'Juridica', label: 'Juridica', Icon: Building2 },
               ].map(({ value, label, Icon }) => (
                 <button
                   key={value}
