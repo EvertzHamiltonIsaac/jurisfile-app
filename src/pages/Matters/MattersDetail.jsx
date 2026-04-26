@@ -49,7 +49,7 @@ export default function MatterDetail() {
       const [matterRes, docsRes, teamRes] = await Promise.all([casesService.getOne(id), documentsService.getCaseDocuments(id), casesService.getTeam(id)]);
 
       setMatter(matterRes.data);
-      setEditStatus(matterRes.data.case_status_id);
+      setEditStatus(matterRes.data.estado_id);
       setHearings([]);
       setDocs(docsRes.data);
       setTeam(teamRes.data);
