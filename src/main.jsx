@@ -12,6 +12,7 @@ import MatterDetail from './pages/Matters/MattersDetail.jsx';
 import Clients from './pages/Clients/Clients.jsx';
 import Documents from './pages/Documents/Documents.jsx';
 import Hearings from './pages/Hearings/Hearings.jsx';
+import ClientsDetails from './pages/Clients/ClientsDetails';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
       { path: 'matters/:id', element: <MatterDetail /> },
       { path: 'documents', element: <Documents /> },
       { path: 'clients', element: <Clients /> },
+      { path: 'clients/:id', element: <ClientsDetails /> },
       { path: 'hearings', element: <Hearings /> },
     ],
   },

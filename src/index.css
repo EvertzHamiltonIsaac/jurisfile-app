@@ -6,7 +6,7 @@
 @theme {
   --color-border: #EDEDED;
   --color-background: #FAFAFA;
-  --color-foreground: #EDEDED;
+  --color-foreground: var(--color-slate-700);
 }
 
 * {

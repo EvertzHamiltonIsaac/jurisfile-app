@@ -72,18 +72,10 @@
 // export default Layout;
 
 import { Outlet, NavLink } from 'react-router-dom';
-import {
-  LayoutDashboard,
-  Briefcase,
-  FolderOpen,
-  Users,
-  Gavel,
-  Scale,
-  Search,
-  Bell,
-  ChevronRight,
-} from 'lucide-react';
+import { LayoutDashboard, Briefcase, FolderOpen, Users, Gavel, Scale, Search, Bell, ChevronRight } from 'lucide-react';
 import { Input } from '@/components/ui/input';
+import { useState, useEffect } from 'react';
+import { authService } from '@/services/Auth.service';
 
 const navItems = [
   { to: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
@@ -94,6 +86,14 @@ const navItems = [
 ];
 
 export default function Layout() {
+  // const [me, setMe] = useState();
+  // useEffect(() => {
+  //   authService
+  //     .getMe()
+  //     .then((e) => setMe(e))
+  //     .catch(() => {});
+  // }, []);
+  // console.log(me);
   return (
     <div className='flex h-screen bg-gray-50 overflow-hidden'>
       {/* Sidebar */}
@@ -105,9 +105,7 @@ export default function Layout() {
               <Scale className='w-4 h-4 text-white' />
             </div>
             <div>
-              <p className='text-sm font-semibold text-slate-900 leading-none'>
-                JurisFile
-              </p>
+              <p className='text-sm font-semibold text-slate-900 leading-none'>JurisFile</p>
               <p className='text-[10px] text-slate-400 mt-0.5'>Legal DMS</p>
             </div>
           </div>
@@ -115,30 +113,22 @@ export default function Layout() {
 
         {/* Navigation */}
         <nav className='flex-1 px-3 py-4 space-y-0.5'>
-          <p className='text-[10px] font-semibold text-slate-400 uppercase tracking-widest px-3 mb-2'>
-            Menu
-          </p>
+          <p className='text-[10px] font-semibold text-slate-400 uppercase tracking-widest px-3 mb-2'>Menu</p>
           {navItems.map(({ to, label, icon: Icon }) => (
             <NavLink
               key={to}
               to={to}
               className={({ isActive }) =>
                 `flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-all duration-150 group ${
-                  isActive
-                    ? 'bg-slate-900 text-white font-medium'
-                    : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900'
+                  isActive ? 'bg-slate-900 text-white font-medium' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900'
                 }`
               }
             >
               {({ isActive }) => (
                 <>
-                  <Icon
-                    className={`w-4 h-4 shrink-0 ${isActive ? 'text-white' : 'text-slate-400 group-hover:text-slate-600'}`}
-                  />
+                  <Icon className={`w-4 h-4 shrink-0 ${isActive ? 'text-white' : 'text-slate-400 group-hover:text-slate-600'}`} />
                   <span className='flex-1'>{label}</span>
-                  {isActive && (
-                    <ChevronRight className='w-3 h-3 text-slate-400' />
-                  )}
+                  {isActive && <ChevronRight className='w-3 h-3 text-slate-400' />}
                 </>
               )}
             </NavLink>
@@ -148,16 +138,10 @@ export default function Layout() {
         {/* Footer */}
         <div className='px-4 py-4 border-t border-gray-100'>
           <div className='flex items-center gap-2.5'>
-            <div className='w-7 h-7 rounded-full bg-slate-200 flex items-center justify-center text-xs font-semibold text-slate-600'>
-              CA
-            </div>
+            <div className='w-7 h-7 rounded-full bg-slate-200 flex items-center justify-center text-xs font-semibold text-slate-600'>CA</div>
             <div className='flex-1 min-w-0'>
-              <p className='text-xs font-medium text-slate-700 truncate'>
-                Carlos Admin
-              </p>
-              <p className='text-[10px] text-slate-400 truncate'>
-                Administrator
-              </p>
+              <p className='text-xs font-medium text-slate-700 truncate'>Carlos Gomez</p>
+              <p className='text-[10px] text-slate-400 truncate'>Administrator</p>
             </div>
           </div>
         </div>
@@ -169,10 +153,7 @@ export default function Layout() {
         <header className='h-14 bg-white border-b border-gray-100 flex items-center px-6 gap-4 shrink-0'>
           <div className='relative flex-1 max-w-md'>
             <Search className='absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400' />
-            <Input
-              placeholder='Search matters, clients, documents...'
-              className='pl-9 h-8 text-sm bg-gray-50 border-gray-200 focus:bg-white rounded-lg'
-            />
+            <Input placeholder='Search matters, clients, documents...' className='pl-9 h-8 text-sm bg-gray-50 border-gray-200 focus:bg-white rounded-lg' />
           </div>
           <div className='flex items-center gap-2 ml-auto'>
             <button className='relative w-8 h-8 rounded-lg hover:bg-gray-100 flex items-center justify-center transition-colors'>

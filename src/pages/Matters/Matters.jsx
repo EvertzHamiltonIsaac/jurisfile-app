@@ -5,21 +5,23 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import StatusBadge from '@/components/ui/StatusBadge';
 import { casesService } from '@/services/Cases.service';
-
-const filters = ['All', 'Open', 'In Progress', 'On Hold', 'Closed'];
+import NewMatterModal from '@/components/modals/NewMatterModal';
+const filters = ['All', 'Abierto', 'En Proceso', 'En Espera', 'Cerrado', 'Archivado'];
 
 const typeColors = {
-  Labor: 'bg-rose-50 text-rose-600',
+  Laboral: 'bg-rose-50 text-rose-600',
   Civil: 'bg-blue-50 text-blue-600',
-  Commercial: 'bg-violet-50 text-violet-600',
-  Constitutional: 'bg-teal-50 text-teal-600',
+  Mercantil: 'bg-violet-50 text-violet-600',
+  Constitucional: 'bg-teal-50 text-teal-600',
   Criminal: 'bg-red-50 text-red-600',
-  Family: 'bg-pink-50 text-pink-600',
+  Familia: 'bg-pink-50 text-pink-600',
+  Penal: 'bg-red-50 text-red-700',
 };
 
 export default function Matters() {
   const [matters, setMatters] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [newMatterOpen, setNewMatterOpen] = useState(false);
   const [error, setError] = useState('');
   const [activeFilter, setActiveFilter] = useState('All');
   const [search, setSearch] = useState('');
@@ -42,9 +44,7 @@ export default function Matters() {
   const filtered = matters.filter((m) => {
     const matchFilter = activeFilter === 'All' || m.case_status === activeFilter;
     const matchSearch =
-      m.title.toLowerCase().includes(search.toLowerCase()) ||
-      m.client_name.toLowerCase().includes(search.toLowerCase()) ||
-      m.case_number.toLowerCase().includes(search.toLowerCase());
+      m.titulo.toLowerCase().includes(search.toLowerCase()) || m.client_name.toLowerCase().includes(search.toLowerCase()) || m.numero.toLowerCase().includes(search.toLowerCase());
     return matchFilter && matchSearch;
   });
 
@@ -65,7 +65,7 @@ export default function Matters() {
           <h1 className='text-xl font-semibold text-slate-900'>Matters</h1>
           <p className='text-sm text-slate-500 mt-0.5'>{matters.length} total matters</p>
         </div>
-        <Button size='sm' className='bg-slate-900 hover:bg-slate-700 text-white gap-1.5 h-8 text-xs'>
+        <Button onClick={() => setNewMatterOpen(true)} size='sm' className='bg-slate-900 hover:bg-slate-700 text-white gap-1.5 h-8 text-xs'>
           <Plus className='w-3.5 h-3.5' /> New Matter
         </Button>
       </div>
@@ -115,27 +115,27 @@ export default function Matters() {
             ) : (
               filtered.map((m, i) => (
                 <tr
-                  key={m.case_id}
-                  onClick={() => navigate(`/matters/${m.case_id}`)}
+                  key={m.expediente_id}
+                  onClick={() => navigate(`/matters/${m.expediente_id}`)}
                   className={`hover:bg-gray-50 cursor-pointer transition-colors ${i !== filtered.length - 1 ? 'border-b border-gray-50' : ''}`}
                 >
                   <td className='px-5 py-3.5'>
-                    <span className='text-xs font-mono font-medium text-slate-500'>{m.case_number}</span>
+                    <span className='text-xs font-mono font-medium text-slate-500'>{m.numero}</span>
                   </td>
                   <td className='px-5 py-3.5'>
-                    <p className='text-xs font-medium text-slate-800 max-w-[220px] truncate'>{m.title}</p>
+                    <p className='text-xs font-medium text-slate-800 max-w-[220px] truncate'>{m.titulo}</p>
                   </td>
                   <td className='px-5 py-3.5'>
                     <p className='text-xs text-slate-600 max-w-[160px] truncate'>{m.client_name}</p>
                   </td>
                   <td className='px-5 py-3.5'>
-                    <span className={`text-[11px] font-medium px-2 py-0.5 rounded-md ${typeColors[m.case_type] || 'bg-gray-100 text-gray-600'}`}>{m.case_type}</span>
+                    <span className={`text-[11px] font-medium px-2 py-0.5 rounded-md ${`${typeColors[m.case_type]}` || 'bg-gray-100 text-gray-600'}`}>{m.case_type}</span>
                   </td>
                   <td className='px-5 py-3.5'>
                     <StatusBadge status={m.case_status} />
                   </td>
                   <td className='px-5 py-3.5'>
-                    <p className='text-xs text-slate-400'>{new Date(m.opened_at).toLocaleDateString()}</p>
+                    <p className='text-xs text-slate-400'>{new Date(m.fecha_apertura).toLocaleDateString()}</p>
                   </td>
                   <td className='px-5 py-3.5'>
                     <ChevronRight className='w-3.5 h-3.5 text-slate-300' />
@@ -146,6 +146,9 @@ export default function Matters() {
           </tbody>
         </table>
       </div>
+
+      {/* Modal */}
+      <NewMatterModal open={newMatterOpen} onClose={() => setNewMatterOpen(false)} onCreated={(newCase) => setMatters((prev) => [newCase, ...prev])} />
     </div>
   );
 }

@@ -5,6 +5,14 @@ export const casesService = {
     return api.get('/api/cases');
   },
 
+  getCasesStatus() {
+    return api.get('');
+  },
+
+  getCasesType() {
+    return api.get('');
+  },
+
   getOne(id) {
     return api.get(`/api/cases/${id}`);
   },
