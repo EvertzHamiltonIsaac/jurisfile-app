@@ -88,12 +88,12 @@ export default function ClientsDetails() {
       <div className='flex items-start justify-between'>
         <div className='flex items-center gap-3'>
           <div className='w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center shrink-0'>
-            {client.type === 'LegalEntity' ? <Building2 className='w-5 h-5 text-slate-500' /> : <User className='w-5 h-5 text-slate-500' />}
+            {client.type === 'Juridica' ? <Building2 className='w-5 h-5 text-slate-500' /> : <User className='w-5 h-5 text-slate-500' />}
           </div>
           <div>
             <h1 className='text-xl font-semibold text-slate-900'>{client.nombre}</h1>
             <p className='text-sm text-slate-500 mt-0.5'>
-              {client.type === 'LegalEntity' ? 'Legal Entity' : 'Individual'} · {client.cedula_rnc || 'No ID'}
+              {client.type === 'Juridica' ? 'Juridica' : 'Fisica'} · {client.cedula_rnc || 'No ID'}
             </p>
           </div>
         </div>

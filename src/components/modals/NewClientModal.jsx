@@ -6,7 +6,7 @@ import { clientsService } from '@/services/Clients.service';
 
 const empty = {
   name: '',
-  type: 'Individual',
+  type: 'Fisica',
   id_number: '',
   email: '',
   phone: '',
@@ -98,10 +98,10 @@ export default function NewClientModal({ open, onClose, onCreated }) {
           {/* Name */}
           <div className='space-y-1.5'>
             <label className='text-xs font-medium text-slate-700'>
-              {form.type === 'Individual' ? 'Full Name' : 'Company Name'} <span className='text-red-400'>*</span>
+              {form.type === 'Fisica' ? 'Full Name' : 'Company Name'} <span className='text-red-400'>*</span>
             </label>
             <Input
-              placeholder={form.type === 'Individual' ? 'John Doe' : 'Acme Corp S.R.L.'}
+              placeholder={form.type === 'Fisica' ? 'John Doe' : 'Acme Corp S.R.L.'}
               value={form.name}
               onChange={(e) => set('name', e.target.value)}
               className='h-8 text-xs border-gray-200 bg-gray-50'
@@ -110,9 +110,9 @@ export default function NewClientModal({ open, onClose, onCreated }) {
 
           {/* ID / RNC */}
           <div className='space-y-1.5'>
-            <label className='text-xs font-medium text-slate-700'>{form.type === 'Individual' ? 'National ID (Cédula)' : 'Tax ID (RNC)'}</label>
+            <label className='text-xs font-medium text-slate-700'>{form.type === 'Fisica' ? 'National ID (Cédula)' : 'Tax ID (RNC)'}</label>
             <Input
-              placeholder={form.type === 'Individual' ? '001-0000000-0' : '1-00-00000-0'}
+              placeholder={form.type === 'Fisica' ? '001-0000000-0' : '1-00-00000-0'}
               value={form.id_number}
               onChange={(e) => set('id_number', e.target.value)}
               className='h-8 text-xs border-gray-200 bg-gray-50'
